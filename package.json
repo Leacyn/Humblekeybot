@@ -1,0 +1,10 @@
+{
+  "name": "HumbleBundle Key Keeper",
+  "version": "1.0.0",
+  "description": "My own Discord bot, It keeps track of humble keys!",
+  "main": "bot.js",
+  "author": "Leacyn",
+  "dependencies": {
+    "discord.js": "^11.4.2"
+  }
+}
