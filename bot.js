@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const Token = require('./auth.json');
 const botconfig = require('./botconfig.json');
 
 
@@ -25,7 +26,14 @@ bot.on("message", async message => {
     case `${prefix}ping`:
         return message.channel.send("PONG!");
         break;
-
+    case `${prefix}botinfo`:
+        let bicon = bot.user.displayAvatarUrl;
+        let botembed = new Discord.RichEmbed()
+        .setDescription("Bot Info")
+        .setColor("#487aa0")
+        .setThumbnail(bicon)
+        .addField("Bot Name", bot.user.username);
+        return message.channel.send(botembed);
 
 
     default:
@@ -34,4 +42,4 @@ bot.on("message", async message => {
 
 });
 
-bot.login(botconfig.token);
+bot.login(Token.token);
