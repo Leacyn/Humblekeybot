@@ -1,3 +1,19 @@
 {
    "token": "NTE5NTY4OTk2NjY0NjA2NzMw.DuhOEQ.DA__8YKTtPeEdNJG59Alj31wWCI"
 }
+
+
+
+
+
+
+/* to do:
+
+Wat moet het doen:
+ * list availible game keys
+ * list number of availible keys per game
+ * add game to the lists
+ * when requested show redeem link (in dm)
+ * a token system?
+
+

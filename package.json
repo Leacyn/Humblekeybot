@@ -5,6 +5,7 @@
   "main": "bot.js",
   "author": "Leacyn",
   "dependencies": {
-    "discord.js": "^11.4.2"
+    "discord.js": "^11.4.2",
+    "nodemon": "^1.18.7"
   }
 }
