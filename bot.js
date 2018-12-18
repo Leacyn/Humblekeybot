@@ -1,25 +1,27 @@
 const Discord = require('discord.js');
 const Token = require('./auth.json');
+const fs = require("fs");
 const botconfig = require('./botconfig.json');
 
 const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
 fs.readdir("./modules",(err, files) =>{
-	
+
 	if(err) console.log(err);
-	
+
 	let jsfile = files.filter(f=> f.split(".").pop() === "js");
-	if (jsfile.length <= 0 ){ 
+	if (jsfile.length <= 0 ){
 		console.log("no modules found");
-		return;	
+		return;
 	}
-	
+
 	jsfile.forEach((f,i) =>{
-		let props = require('./modules/${f}').
-		console.log('${f} Loaded');
-		bot.commands.set(props.help.name, props);		
+		let props = require( `./modules/${f}`).
+		console.log(`${f} Loaded`);
+		bot.commands.set(prop.help.name, props);
 	});
+
 });
 bot.on("ready", async () =>{
   console.log(`${bot.user.username} is online!`);
