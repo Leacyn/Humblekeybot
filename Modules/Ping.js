@@ -1,11 +1,10 @@
 const Discord = require("Discord.js");
 
 module.exports.run = async (bot, message, args) =>{
-  console.log("IM HERE!!")
-
+  return message.channel.send("Hello there!");
 
 }
 
 module.exports.help = {
-  name: Ping!
+  Name: "Ping"
 }
