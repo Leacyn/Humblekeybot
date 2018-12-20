@@ -17,16 +17,15 @@ fs.readdir("./modules",(err, files) =>{
 	}
 
 	jsfile.forEach((f,i) =>{
-		let props = require( `./modules/${f}`);
+		let props = require(`./Modules/${f}`);
 		console.log(`${f} loaded!`);
-    bot.commands.set(props.help.Name, props);
+    bot.commands.set(props.help.name, props);
   });
 
 
 });
 bot.on("ready", async () =>{
   console.log(`${bot.user.username} is online!`);
-	console.log(bot.commands);
   // let nbr = (Math.random * 2);
   // switch (nbr) {
   //   case 0:
@@ -55,40 +54,7 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
 
 	let cmd = bot.commands.get(command.slice(prefix.length));
-
-  // switch (cmd){
-  //   case `${prefix}hello`:
-  //       return message.channel.send("Hello there!");
-  //       break;
-  //   case `${prefix}ping`:
-  //       return message.channel.send("PONG!");
-  //       break;
-  //   case `${prefix}botinfo`:
-  //       let bicon = bot.user.displayAvatarUrl;
-  //       let botembed = new Discord.RichEmbed()
-  //       .setDescription("Bot Info")
-  //       .setColor("#487aa0")
-  //       .setThumbnail(bicon)
-  //       .addField("Bot Name", bot.user.username)
-  //       .addField("Created on", bot.user.createdAt);
-  //       return message.channel.send(botembed);
-  //       break;
-  //   case `${prefix}serverinfo`:
-  //       let sicon = message.guild.displayAvatarUrl;
-  //       let serverembed = new Discord.RichEmbed()
-  //       .setDescription("Server Information")
-  //       .setColor("#ff000f")
-  //       .addField("Server Name",message.guild.name)
-  //       .addField("Created on",message.guild.createdAt)
-  //       .addField("You joined at:", message.member.joinedAt)
-  //       .addField("Total Members:", message.guild.memberCount);
-  //       return message.channel.send(serverembed);
-  //       break;
-	//
-	//
-  //   default:
-  //       break;
-  // }
+	if(cmd)cmd.run(bot,message,args);
 
 });
 
